@@ -8,11 +8,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        espresso: "#8A6B51",
-        cocoa: "#937761",
-        taupe: "#BFA490",
-        mauve: "#B19D8D",
-        cream: "#F8EDE2",
+        primary: "#E8C1C5",
+        secondary: "#F7EBDD",
+        accent: "#BFA06A",
+        background: "#FFFCF8",
+        text: "#403536",
+        espresso: "#403536",
+        cocoa: "#BFA06A",
+        taupe: "#E8C1C5",
+        mauve: "#E8C1C5",
+        cream: "#F7EBDD",
       },
       fontFamily: {
         heading: ["var(--font-playfair)", "Georgia", "serif"],

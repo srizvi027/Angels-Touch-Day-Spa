@@ -6,22 +6,27 @@ import { Reveal } from "./Reveal";
 const services = [
   {
     title: "Massage Therapy",
+    image: "/images/massage.jpg",
     text: "Experience the touch of wellness, where every knead brings you closer to tranquility.",
   },
   {
     title: "Facial Treatment",
+    image: "/images/Facial.jpg",
     text: "Unlock the secret to youthful, vibrant skin with expert facials — every session a step towards luminous beauty.",
   },
   {
     title: "Body Treatment",
+    image: "/images/body.jpg",
     text: "Embark on a sensory journey with body treatments that restore balance and harmony.",
   },
   {
     title: "Ultimate Rituals",
+    image: "/images/ultimate.png",
     text: "Indulge in the epitome of relaxation and renewal, where every detail caters to your utmost tranquility.",
   },
   {
     title: "Hair Treatments",
+    image: "/images/hair.jpg",
     text: "Unlock the secret to lustrous locks — every strand tells a story of radiance.",
   },
 ];
@@ -46,12 +51,16 @@ export default function Services() {
                 }`}
               >
                 <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] md:[direction:ltr]">
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-taupe/40 to-mauve/30">
-                    <span className="font-heading text-7xl text-espresso/20">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                  </div>
-                  <div className="absolute inset-0 scale-100 bg-espresso/0 transition-transform duration-700 group-hover:scale-105" />
+                  <Image
+                    src={s.image}
+                    alt={s.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/25" />
+                  <span className="absolute right-5 top-5 z-10 font-heading text-5xl text-white/90 drop-shadow-md transition-transform duration-500 group-hover:scale-110">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                 </div>
 
                 <div className="p-8 md:p-14 md:[direction:ltr]">
@@ -60,7 +69,9 @@ export default function Services() {
                   </h3>
                   <p className="body-text mb-6 max-w-md">{s.text}</p>
                   <a
-                    href="#booking"
+                    href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 font-body text-xs tracking-widest2 uppercase text-espresso border-b border-espresso/40 pb-1 transition-all group-hover:gap-4 group-hover:border-espresso"
                   >
                     Discover More <span aria-hidden>&rarr;</span>

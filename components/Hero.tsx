@@ -1,20 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Hero() {
   return (
     <section id="home" className="relative flex h-screen min-h-[640px] w-full items-end overflow-hidden">
-      <video
+      <Image
+        src="/images/main.png"
+        alt="Relaxing spa treatment at Angel's Touch Day Spa"
         className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster="/images/logo.png"
-      >
-        <source src="/videos/hero-treatment.mp4" type="video/mp4" />
-      </video>
+        fill
+        priority
+      />
 
       {/* warm overlay for legibility, tuned to brand palette */}
       <div className="absolute inset-0 bg-gradient-to-t from-espresso/70 via-espresso/30 to-espresso/10" />
@@ -67,7 +65,7 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.95 }}
           className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          <a href="#booking" className="btn-primary !bg-cream !text-espresso hover:!bg-taupe">
+          <a href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts" target="_blank" rel="noopener noreferrer" className="btn-primary !bg-cream !text-espresso hover:!bg-taupe">
             Book Your Experience
           </a>
           <a href="#services" className="btn-outline !border-cream !text-cream hover:!bg-cream hover:!text-espresso">

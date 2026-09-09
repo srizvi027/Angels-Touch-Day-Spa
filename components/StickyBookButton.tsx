@@ -24,8 +24,10 @@ export default function StickyBookButton() {
         <Phone size={18} />
       </a>
       <a
-        href="#booking"
-        className="flex-1 rounded-full bg-espresso py-3 text-center font-body text-xs tracking-widest2 uppercase text-cream"
+        href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 rounded-full bg-primary py-3 text-center font-body text-xs tracking-widest2 uppercase text-text"
       >
         Book Now
       </a>

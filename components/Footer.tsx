@@ -75,7 +75,7 @@ export default function Footer() {
                 <Facebook size={16} />
               </a>
             </div>
-            <a href="#booking" className="btn-primary !bg-cream !text-espresso hover:!bg-taupe !px-5 !py-3 text-xs">
+            <a href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts" target="_blank" rel="noopener noreferrer" className="btn-primary !bg-cream !text-espresso hover:!bg-taupe !px-5 !py-3 text-xs">
               Book Online
             </a>
           </div>

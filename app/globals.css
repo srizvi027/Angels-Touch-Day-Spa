@@ -6,28 +6,34 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes loaderProgress {
+  0% { transform: translateX(-130%); }
+  50% { transform: translateX(80%); }
+  100% { transform: translateX(260%); }
+}
+
 body {
-  background-color: #f8ede2;
-  color: #5b4636;
+  background-color: #fffcf8;
+  color: #403536;
 }
 
 ::selection {
-  background: #bfa490;
-  color: #f8ede2;
+  background: #bfa06a;
+  color: #fffcf8;
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #f8ede2;
+  background: #fffcf8;
 }
 ::-webkit-scrollbar-thumb {
-  background: #bfa490;
+  background: #e8c1c5;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8a6b51;
+  background: #bfa06a;
 }
 
 @layer components {
@@ -52,11 +58,11 @@ body {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-espresso text-cream px-8 py-4 font-body text-sm tracking-widest2 uppercase transition-all duration-500 hover:bg-cocoa hover:tracking-[0.4em] hover:shadow-lg hover:shadow-espresso/20;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-primary text-text px-8 py-4 font-body text-sm tracking-widest2 uppercase transition-all duration-500 hover:bg-accent hover:tracking-[0.4em] hover:shadow-lg hover:shadow-espresso/20;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-espresso text-espresso px-8 py-4 font-body text-sm tracking-widest2 uppercase transition-all duration-500 hover:bg-espresso hover:text-cream hover:tracking-[0.4em];
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-espresso text-espresso px-8 py-4 font-body text-sm tracking-widest2 uppercase transition-all duration-500 hover:bg-primary hover:text-text hover:tracking-[0.4em];
   }
 
   .divider-line {

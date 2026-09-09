@@ -7,7 +7,7 @@ export default function FeaturedTreatment() {
     <section className="relative grid grid-cols-1 md:grid-cols-2 min-h-[80vh]">
       <div className="relative min-h-[50vh] overflow-hidden">
         <video className="h-full w-full object-cover" autoPlay muted loop playsInline>
-          <source src="/videos/mens-facial.mp4" type="video/mp4" />
+          <source src="/videos/vid3.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-espresso/20" />
         <span className="absolute bottom-8 left-8 rounded-full bg-cream/90 px-5 py-2 font-body text-xs tracking-widest2 uppercase text-espresso">
@@ -24,7 +24,7 @@ export default function FeaturedTreatment() {
             products we choose to the pace we hold. This is skin care and self care,
             woven into one unhurried experience.
           </p>
-          <a href="#booking" className="btn-primary">
+          <a href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts" target="_blank" rel="noopener noreferrer" className="btn-primary">
             Book This Treatment
           </a>
         </Reveal>

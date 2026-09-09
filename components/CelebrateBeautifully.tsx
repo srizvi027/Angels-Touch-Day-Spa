@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Reveal } from "./Reveal";
 
 export default function CelebrateBeautifully() {
@@ -19,9 +20,30 @@ export default function CelebrateBeautifully() {
           </a>
         </Reveal>
         <Reveal delay={0.15} className="grid grid-cols-2 gap-4">
-          <div className="col-span-2 aspect-[16/9] rounded-2xl bg-gradient-to-br from-mauve/50 to-taupe/40" />
-          <div className="aspect-square rounded-2xl bg-gradient-to-br from-espresso/30 to-cocoa/30" />
-          <div className="aspect-square rounded-2xl bg-gradient-to-br from-taupe/50 to-mauve/40" />
+          <div className="group relative col-span-2 aspect-[16/9] overflow-hidden rounded-2xl">
+            <Image
+              src="/images/img1.png"
+              alt="Group spa celebration"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+          <div className="group relative aspect-square overflow-hidden rounded-2xl">
+            <Image
+              src="/images/img2.png"
+              alt="Friends enjoying a spa experience"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+          <div className="group relative aspect-square overflow-hidden rounded-2xl">
+            <Image
+              src="/images/img3.png"
+              alt="A shared celebration at the spa"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
         </Reveal>
       </div>
     </section>

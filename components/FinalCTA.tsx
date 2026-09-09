@@ -1,12 +1,13 @@
 "use client";
 
 import { Reveal } from "./Reveal";
+import ContactFormModal from "./ContactFormModal";
 
 export default function FinalCTA() {
   return (
     <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden">
       <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline>
-        <source src="/videos/rest-and-restore.mp4" type="video/mp4" />
+        <source src="/videos/vid4.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-espresso/65" />
 
@@ -26,12 +27,13 @@ export default function FinalCTA() {
         </h2>
         <p className="font-body text-cream/85 mb-10">Relax. Restore. Reconnect.</p>
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a href="#booking" className="btn-primary !bg-cream !text-espresso hover:!bg-taupe">
+          <a href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts" target="_blank" rel="noopener noreferrer" className="btn-primary !bg-cream !text-espresso hover:!bg-taupe">
             Book Your Appointment
           </a>
-          <a href="#contact" className="btn-outline !border-cream !text-cream hover:!bg-cream hover:!text-espresso">
-            Get In Touch
-          </a>
+          <ContactFormModal
+            label="Get In Touch"
+            className="btn-outline !border-cream !text-cream hover:!bg-cream hover:!text-espresso"
+          />
         </div>
       </Reveal>
     </section>

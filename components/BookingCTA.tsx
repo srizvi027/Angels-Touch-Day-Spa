@@ -1,6 +1,7 @@
 "use client";
 
 import { Reveal } from "./Reveal";
+import ContactFormModal from "./ContactFormModal";
 
 export default function BookingCTA() {
   return (
@@ -23,16 +24,17 @@ export default function BookingCTA() {
         </p>
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
-            href="https://www.fresha.com"
+            href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary !bg-cream !text-espresso hover:!bg-taupe"
           >
             Book Now
           </a>
-          <a href="#contact" className="btn-outline !border-cream !text-cream hover:!bg-cream hover:!text-espresso">
-            Contact Us
-          </a>
+          <ContactFormModal
+            label="Contact Us"
+            className="btn-outline !border-cream !text-cream hover:!bg-cream hover:!text-espresso"
+          />
         </div>
       </Reveal>
     </section>

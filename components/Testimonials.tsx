@@ -60,7 +60,7 @@ export default function Testimonials() {
           <button
             onClick={prev}
             aria-label="Previous testimonial"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-espresso/30 text-espresso transition-colors hover:bg-espresso hover:text-cream"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-espresso/30 text-espresso transition-colors hover:bg-primary hover:text-text"
           >
             <ChevronLeft size={18} />
           </button>
@@ -71,7 +71,7 @@ export default function Testimonials() {
                 onClick={() => setIndex(i)}
                 aria-label={`Go to testimonial ${i + 1}`}
                 className={`h-2 w-2 rounded-full transition-all ${
-                  i === index ? "w-6 bg-espresso" : "bg-espresso/30"
+                  i === index ? "w-6 bg-primary" : "bg-espresso/30"
                 }`}
               />
             ))}
@@ -79,7 +79,7 @@ export default function Testimonials() {
           <button
             onClick={next}
             aria-label="Next testimonial"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-espresso/30 text-espresso transition-colors hover:bg-espresso hover:text-cream"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-espresso/30 text-espresso transition-colors hover:bg-primary hover:text-text"
           >
             <ChevronRight size={18} />
           </button>

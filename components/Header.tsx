@@ -23,6 +23,13 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
@@ -31,12 +38,9 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-12">
         <a href="#home" className="flex items-center gap-3">
-          <div className="relative h-11 w-11 md:h-12 md:w-12">
+          <div className="relative h-16 w-16 md:h-20 md:w-20">
             <Image src="/images/logo.png" alt="Angel's Touch Day Spa" fill className="object-contain" priority />
           </div>
-          <span className={`font-heading text-lg md:text-xl tracking-wide ${scrolled ? "text-espresso" : "text-cream"}`}>
-            Angel&rsquo;s Touch
-          </span>
         </a>
 
         <nav className="hidden lg:flex items-center gap-10">
@@ -53,36 +57,57 @@ export default function Header() {
           ))}
         </nav>
 
-        <a href="#booking" className="hidden lg:inline-flex btn-primary !px-6 !py-3 text-xs">
+        <a href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts" target="_blank" rel="noopener noreferrer" className="hidden lg:inline-flex btn-primary !px-6 !py-3 text-xs">
           Book Now
         </a>
 
         <button
-          className={`lg:hidden ${scrolled ? "text-espresso" : "text-cream"}`}
+          className={`relative z-[70] flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-300 lg:hidden ${
+            open
+              ? "border-primary bg-primary text-text rotate-90"
+              : scrolled
+                ? "border-espresso/20 text-espresso hover:border-espresso hover:bg-espresso/5"
+                : "border-cream/40 text-cream hover:border-cream hover:bg-cream/10"
+          }`}
           onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
         >
-          {open ? <X size={26} /> : <Menu size={26} />}
+          {open ? <X size={23} strokeWidth={1.5} /> : <Menu size={23} strokeWidth={1.5} />}
         </button>
       </div>
 
-      {open && (
-        <div className="lg:hidden mt-4 flex flex-col gap-5 border-t border-espresso/10 bg-cream/98 px-8 py-8 shadow-md">
+      <div
+        className={`fixed inset-0 z-[60] bg-espresso/50 backdrop-blur-sm transition-opacity duration-500 lg:hidden ${
+          open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        aria-hidden={!open}
+        onClick={() => setOpen(false)}
+      />
+
+      <div
+        className={`fixed right-0 top-0 z-[65] flex h-dvh w-[70vw] max-w-sm flex-col bg-cream px-7 pb-8 pt-28 shadow-2xl transition-transform duration-500 ease-out lg:hidden ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+        aria-hidden={!open}
+      >
+        <div className="mb-10 h-px w-12 bg-accent" />
+        <nav className="flex flex-col gap-6">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="font-heading text-2xl text-espresso"
+              className="font-heading text-2xl text-espresso transition-colors hover:text-cocoa"
             >
               {l.label}
             </a>
           ))}
-          <a href="#booking" onClick={() => setOpen(false)} className="btn-primary mt-2 w-full">
+        </nav>
+        <a href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="btn-primary mt-auto w-full">
             Book Now
-          </a>
-        </div>
-      )}
+        </a>
+      </div>
     </header>
   );
 }

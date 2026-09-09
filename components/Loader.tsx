@@ -61,9 +61,14 @@ export default function Loader({ onDone }: { onDone: () => void }) {
       className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-cream overflow-hidden"
       aria-label="Loading Angel's Touch Day Spa"
     >
-      <div ref={ringRef} className="relative flex h-44 w-44 items-center justify-center rounded-full border border-taupe/35 opacity-0">
-        <div className="absolute inset-3 rounded-full border border-taupe/20" />
-        <div ref={logoRef} className="relative h-28 w-28 overflow-hidden rounded-full opacity-0">
+      <div ref={ringRef} className="relative flex h-60 w-60 items-center justify-center rounded-full border border-taupe/35 opacity-0">
+        <div className="absolute inset-3 rounded-full border border-taupe/20 animate-pulse" />
+        <div className="absolute inset-8 rounded-full border border-accent/25" />
+        <div className="absolute inset-0 animate-spin rounded-full border border-transparent border-t-accent/80 border-r-primary/50 [animation-duration:5s]" />
+        <div className="absolute -inset-3 animate-[spin_8s_linear_infinite_reverse] rounded-full border border-dashed border-primary/40" />
+        <span className="absolute right-7 top-7 h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_14px_rgba(191,160,106,0.8)]" />
+        <span className="absolute bottom-10 left-5 h-2 w-2 rounded-full bg-primary shadow-[0_0_12px_rgba(232,193,197,0.9)]" />
+        <div ref={logoRef} className="relative h-40 w-40 overflow-hidden rounded-full bg-background/50 p-2 opacity-0 shadow-xl shadow-accent/10">
           <Image src="/images/logo.png" alt="Angel's Touch Day Spa" fill className="object-contain" priority />
           <div
             ref={sheenRef}
@@ -71,12 +76,12 @@ export default function Loader({ onDone }: { onDone: () => void }) {
           />
         </div>
       </div>
-      <div className="mt-8 text-center">
+      <div className="mt-10 text-center">
         <p className="font-body text-[11px] tracking-widest2 uppercase text-espresso/60">
           A Moment of Calm
         </p>
-        <div className="mx-auto mt-4 h-px w-12 overflow-hidden bg-taupe/25">
-          <div className="h-full w-1/2 animate-pulse bg-espresso/60" />
+        <div className="mx-auto mt-4 h-1 w-20 overflow-hidden rounded-full bg-taupe/25">
+          <div className="h-full w-1/2 animate-[loaderProgress_1.8s_ease-in-out_infinite] rounded-full bg-accent" />
         </div>
       </div>
     </div>

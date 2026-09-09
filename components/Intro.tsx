@@ -20,7 +20,7 @@ export default function Intro() {
               loop
               playsInline
             >
-              <source src="/videos/rest-and-restore.mp4" type="video/mp4" />
+              <source src="/videos/vid2.mp4" type="video/mp4" />
             </video>
           </div>
           <div className="absolute -bottom-8 -right-6 hidden h-40 w-40 items-center justify-center rounded-full border border-espresso/20 bg-cream/80 backdrop-blur-sm md:flex">
