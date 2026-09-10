@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 
 const services = [
@@ -48,9 +49,10 @@ export default function ContactFormModal({ label, className }: ContactFormModalP
         {label}
       </button>
 
-      {open && (
+      {open && createPortal(
+        (
         <div
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-espresso/60 px-4 py-6 backdrop-blur-sm"
+          className="fixed inset-0 z-[70] flex items-start justify-center overflow-y-auto bg-espresso/60 px-4 pb-6 pt-24 backdrop-blur-sm md:items-center md:py-6"
           role="dialog"
           aria-modal="true"
           aria-labelledby="contact-form-title"
@@ -58,7 +60,7 @@ export default function ContactFormModal({ label, className }: ContactFormModalP
             if (event.target === event.currentTarget) closeModal();
           }}
         >
-          <div className="relative w-full max-w-md rounded-[1.25rem] bg-background p-4 shadow-2xl sm:p-5">
+          <div className="relative z-[71] w-full max-w-md rounded-[1.25rem] bg-background p-4 shadow-2xl sm:p-5">
             <button
               type="button"
               onClick={closeModal}
@@ -121,6 +123,8 @@ export default function ContactFormModal({ label, className }: ContactFormModalP
             )}
           </div>
         </div>
+        ),
+        document.body
       )}
     </>
   );

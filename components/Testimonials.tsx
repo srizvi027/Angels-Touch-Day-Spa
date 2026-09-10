@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { AnimatePresence, motion } from "framer-motion";
@@ -22,9 +22,21 @@ const testimonials = [
 
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
-  const next = () => setIndex((i) => (i + 1) % testimonials.length);
-  const prev = () => setIndex((i) => (i - 1 + testimonials.length) % testimonials.length);
+  const [direction, setDirection] = useState(1);
+  const next = () => {
+    setDirection(1);
+    setIndex((i) => (i + 1) % testimonials.length);
+  };
+  const prev = () => {
+    setDirection(-1);
+    setIndex((i) => (i - 1 + testimonials.length) % testimonials.length);
+  };
   const t = testimonials[index];
+
+  useEffect(() => {
+    const timer = window.setInterval(next, 6500);
+    return () => window.clearInterval(timer);
+  }, []);
 
   return (
     <section id="testimonials" className="relative bg-mauve/15 section-pad overflow-hidden">
@@ -33,30 +45,58 @@ export default function Testimonials() {
         <h2 className="heading-lg">Real Words, Real Rest</h2>
       </Reveal>
 
-      <div className="relative mx-auto max-w-3xl">
-        <Quote className="mx-auto mb-6 text-espresso/20" size={56} strokeWidth={1} />
+      <div className="relative mx-auto max-w-4xl">
+        <div className="relative mx-auto min-h-[360px] max-w-3xl px-4 sm:px-10">
+          <div className="absolute inset-x-10 top-5 h-[290px] rotate-3 rounded-[2rem] border border-primary/40 bg-primary/20" />
+          <div className="absolute inset-x-4 top-2 h-[290px] -rotate-2 rounded-[2rem] border border-accent/20 bg-secondary/70" />
 
-        <div className="relative min-h-[220px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="text-center"
+              custom={direction}
+              variants={{
+                enter: (slideDirection: number) => ({ opacity: 0, x: slideDirection * 80, rotate: slideDirection * 3 }),
+                center: { opacity: 1, x: 0, rotate: 0 },
+                exit: (slideDirection: number) => ({ opacity: 0, x: slideDirection * -80, rotate: slideDirection * -3 }),
+              }}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.7}
+              onDragEnd={(_, info) => {
+                if (info.offset.x < -60) next();
+                if (info.offset.x > 60) prev();
+              }}
+              className="relative z-10 flex min-h-[290px] cursor-grab flex-col items-center justify-center rounded-[2rem] border border-white/80 bg-background px-7 py-12 text-center shadow-xl shadow-espresso/10 active:cursor-grabbing sm:px-16"
             >
-              <p className="font-heading text-2xl md:text-3xl italic text-espresso leading-snug mb-6">
+              <Quote className="absolute left-7 top-7 text-accent/60" size={42} strokeWidth={1} />
+              <span className="absolute right-7 top-7 font-body text-xs tracking-widest2 text-espresso/40">
+                0{index + 1} / 0{testimonials.length}
+              </span>
+              <p className="max-w-2xl font-heading text-2xl italic leading-snug text-espresso md:text-3xl">
                 &ldquo;{t.text}&rdquo;
               </p>
-              <p className="font-body text-sm tracking-widest2 uppercase text-espresso/60">
+              <p className="mt-7 font-body text-sm tracking-widest2 uppercase text-espresso/60">
                 {t.name}
               </p>
             </motion.div>
           </AnimatePresence>
         </div>
 
-        <div className="mt-10 flex items-center justify-center gap-6">
+        <div className="mx-auto mt-2 h-1 w-32 overflow-hidden rounded-full bg-espresso/10">
+          <motion.div
+            key={index}
+            initial={{ width: "0%" }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 6.5, ease: "linear" }}
+            className="h-full rounded-full bg-accent"
+          />
+        </div>
+
+        <div className="mt-7 flex items-center justify-center gap-6">
           <button
             onClick={prev}
             aria-label="Previous testimonial"
