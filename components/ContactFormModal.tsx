@@ -20,27 +20,50 @@ type ContactFormModalProps = {
 export default function ContactFormModal({ label, className }: ContactFormModalProps) {
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const details = [
-      `Name: ${formData.get("name")}`,
-      `Phone: ${formData.get("phone")}`,
-      `Email: ${formData.get("email")}`,
-      `Service: ${formData.get("service")}`,
-      `Preferred date: ${formData.get("date") || "Not provided"}`,
-      `Preferred time: ${formData.get("time") || "Not provided"}`,
-      `Message: ${formData.get("message") || "No additional message"}`,
-    ].join("\n");
+    setSubmitting(true);
+    setError("");
 
-    window.location.href = `mailto:angelstouchdayspa22@gmail.com?subject=New%20service%20enquiry&body=${encodeURIComponent(details)}`;
-    setSubmitted(true);
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setError("The enquiry form is not configured yet. Please call us directly.");
+      setSubmitting(false);
+      return;
+    }
+
+    const formData = new FormData(event.currentTarget);
+    formData.append("access_key", accessKey);
+    formData.append("subject", "New service enquiry - Angel's Touch Day Spa");
+    formData.append("from_name", "Angel's Touch Day Spa website");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const result = await response.json() as { success?: boolean; message?: string };
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Unable to send your enquiry.");
+      }
+
+      setSubmitted(true);
+    } catch (submissionError) {
+      setError(submissionError instanceof Error ? submissionError.message : "Unable to send your enquiry. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   function closeModal() {
     setOpen(false);
     setSubmitted(false);
+    setSubmitting(false);
+    setError("");
   }
 
   return (
@@ -118,7 +141,10 @@ export default function ContactFormModal({ label, className }: ContactFormModalP
                   <textarea name="message" rows={2} className="mt-1 w-full resize-none rounded-lg border border-text/15 bg-secondary/40 px-3 py-2 text-sm outline-none transition-colors focus:border-accent" />
                 </label>
 
-                <button type="submit" className="btn-primary !py-3 mt-3 w-full">Send Enquiry</button>
+                {error && <p role="alert" className="mt-3 text-center font-body text-xs text-red-700">{error}</p>}
+                <button type="submit" disabled={submitting} className="btn-primary !py-3 mt-3 w-full disabled:cursor-wait disabled:opacity-60">
+                  {submitting ? "Sending..." : "Send Enquiry"}
+                </button>
               </form>
             )}
           </div>
