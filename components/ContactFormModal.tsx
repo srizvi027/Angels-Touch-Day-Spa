@@ -12,6 +12,8 @@ const services = [
   "Hair Treatments",
 ];
 
+const web3FormsAccessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "b6c859d1-8ab7-4d30-b126-77e39f7168c1";
+
 type ContactFormModalProps = {
   label: string;
   className: string;
@@ -28,15 +30,8 @@ export default function ContactFormModal({ label, className }: ContactFormModalP
     setSubmitting(true);
     setError("");
 
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
-    if (!accessKey) {
-      setError("The enquiry form is not configured yet. Please call us directly.");
-      setSubmitting(false);
-      return;
-    }
-
     const formData = new FormData(event.currentTarget);
-    formData.append("access_key", accessKey);
+    formData.append("access_key", web3FormsAccessKey);
     formData.append("subject", "New service enquiry - Angel's Touch Day Spa");
     formData.append("from_name", "Angel's Touch Day Spa website");
 
