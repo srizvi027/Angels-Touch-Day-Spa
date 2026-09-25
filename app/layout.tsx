@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import StickyBookButton from "@/components/StickyBookButton";
+import RecaptchaProvider from "@/components/RecaptchaProvider";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -124,7 +125,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`${playfair.variable} ${cormorant.variable} ${dmSans.variable} font-body bg-cream antialiased`}
       >
-        {children}
+        <RecaptchaProvider>{children}</RecaptchaProvider>
         <StickyBookButton />
       </body>
     </html>

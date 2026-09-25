@@ -82,7 +82,13 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 border-t border-cream/15 pt-8 text-center font-body text-xs text-cream/50">
-          Copyright &copy; 2026 Angel&rsquo;s Touch Day Spa. All rights reserved.
+          <p>Copyright &copy; 2026 Angel&rsquo;s Touch Day Spa. All rights reserved.</p>
+          <p className="mt-2">
+            Created by{" "}
+            <a href="https://prowingz.com/" target="_blank" rel="noopener noreferrer" className="hover:text-cream transition-colors">
+              Prowingz
+            </a>
+          </p>
         </div>
       </div>
     </footer>

@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { createPortal } from "react-dom";
 import { X } from "lucide-react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const services = [
   "Massage Therapy",
@@ -11,8 +12,6 @@ const services = [
   "Ultimate Rituals",
   "Hair Treatments",
 ];
-
-const web3FormsAccessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "b6c859d1-8ab7-4d30-b126-77e39f7168c1";
 
 type ContactFormModalProps = {
   label: string;
@@ -24,21 +23,24 @@ export default function ContactFormModal({ label, className }: ContactFormModalP
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setSubmitting(true);
     setError("");
 
-    const formData = new FormData(event.currentTarget);
-    formData.append("access_key", web3FormsAccessKey);
-    formData.append("subject", "New service enquiry - Angel's Touch Day Spa");
-    formData.append("from_name", "Angel's Touch Day Spa website");
-
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      if (!executeRecaptcha) {
+        throw new Error("Security verification is still loading. Please try again.");
+      }
+
+      const recaptchaToken = await executeRecaptcha("submit");
+      const formData = Object.fromEntries(new FormData(event.currentTarget).entries());
+      const response = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, recaptchaToken }),
       });
       const result = await response.json() as { success?: boolean; message?: string };
 
@@ -92,7 +94,7 @@ export default function ContactFormModal({ label, className }: ContactFormModalP
               <div className="py-10 text-center">
                 <p className="eyebrow mb-4">Thank You</p>
                 <h2 id="contact-form-title" className="heading-md mb-4">Your enquiry is ready to send.</h2>
-                <p className="body-text mb-8">Your email app should open with your service request prepared.</p>
+                <p className="body-text mb-8">We&rsquo;ve received your enquiry and will be in touch soon.</p>
                 <button type="button" onClick={closeModal} className="btn-primary">Close</button>
               </div>
             ) : (

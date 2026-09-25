@@ -40,9 +40,13 @@ Open http://localhost:3000.
    for the full editorial-grid effect described in the brief.
 4. **Domain** — update `siteUrl` in `app/layout.tsx` and the URLs in
    `app/sitemap.ts` / `app/robots.ts` once your domain is live.
-5. **Enquiry form** — create `.env.local` and add your Web3Forms access key:
-   `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_access_key`. Get the key from
-   [web3forms.com](https://web3forms.com/), then restart the dev server.
+5. **Enquiry form** — add the Web3Forms and Google reCAPTCHA v3 variables to
+   `.env.local` and your deployment provider, then restart the dev server:
+   `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_access_key`,
+   `NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_site_key`, and
+   `RECAPTCHA_SECRET_KEY=your_secret_key`. Get the keys from
+   [web3forms.com](https://web3forms.com/) and
+   [google.com/recaptcha](https://www.google.com/recaptcha/about/).
 
 ## Deploying
 
