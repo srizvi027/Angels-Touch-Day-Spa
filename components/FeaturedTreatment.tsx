@@ -1,6 +1,7 @@
 "use client";
 
 import { Reveal } from "./Reveal";
+import { bookingUrl } from "@/lib/site";
 
 export default function FeaturedTreatment() {
   return (
@@ -24,8 +25,8 @@ export default function FeaturedTreatment() {
             products we choose to the pace we hold. This is skin care and self care,
             woven into one unhurried experience.
           </p>
-          <a href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts" target="_blank" rel="noopener noreferrer" className="btn-primary">
-            Book This Treatment
+          <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            Book an Appointment
           </a>
         </Reveal>
       </div>

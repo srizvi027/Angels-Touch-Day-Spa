@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
+import { bookingUrl } from "@/lib/site";
 
 const links = [
   { label: "Home", href: "#home" },
@@ -57,8 +58,8 @@ export default function Header() {
           ))}
         </nav>
 
-        <a href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts" target="_blank" rel="noopener noreferrer" className="hidden lg:inline-flex btn-primary !px-6 !py-3 text-xs">
-          Book Now
+        <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="hidden lg:inline-flex btn-primary !px-6 !py-3 text-xs">
+          Book an Appointment
         </a>
 
         <button
@@ -104,8 +105,8 @@ export default function Header() {
             </a>
           ))}
         </nav>
-        <a href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="btn-primary mt-auto w-full">
-            Book Now
+        <a href={bookingUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="btn-primary mt-auto w-full">
+            Book an Appointment
         </a>
       </div>
     </header>

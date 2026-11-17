@@ -1,6 +1,7 @@
 "use client";
 
 import { Reveal } from "./Reveal";
+import { Instagram } from "lucide-react";
 
 export default function InstagramShowcase() {
   return (
@@ -10,14 +11,12 @@ export default function InstagramShowcase() {
         <h2 className="heading-lg mb-4">@angels__touchdayspa</h2>
       </Reveal>
 
-      <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl bg-white/40 shadow-sm">
-        <iframe
-          src="https://www.instagram.com/angels__touchdayspa/embed"
-          title="Recent posts from Angels Touch Day Spa on Instagram"
-          className="h-[560px] w-full border-0"
-          loading="lazy"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-        />
+      <div className="mx-auto flex min-h-[280px] max-w-5xl flex-col items-center justify-center rounded-2xl bg-white/40 px-6 py-12 text-center shadow-sm md:min-h-[360px]">
+        <Instagram size={32} strokeWidth={1.5} className="mb-5 text-espresso" aria-hidden="true" />
+        <p className="font-heading text-2xl text-espresso">A little more of Angel&rsquo;s Touch</p>
+        <p className="mt-3 max-w-md font-body text-sm leading-relaxed text-espresso/70">
+          Visit us on Instagram for treatment highlights and updates from the spa.
+        </p>
       </div>
 
       <div className="mt-10 text-center">

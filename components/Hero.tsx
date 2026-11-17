@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { bookingUrl } from "@/lib/site";
 
 export default function Hero() {
   return (
@@ -55,8 +56,9 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.7 }}
           className="mx-auto mt-6 max-w-xl font-body text-base text-cream/85 md:text-lg"
         >
-          Escape the everyday and experience personalised treatments designed to restore
-          balance, relaxation, and radiance.
+          Enjoy mobile massage and beauty services in Avondale and ask about
+          availability in nearby Illawarra suburbs, or book an in-studio treatment.
+          Choose the appointment type that suits you.
         </motion.p>
 
         <motion.div
@@ -65,8 +67,8 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.95 }}
           className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          <a href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts" target="_blank" rel="noopener noreferrer" className="btn-primary !bg-cream !text-espresso hover:!bg-taupe">
-            Book Your Experience
+          <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="btn-primary !bg-cream !text-espresso hover:!bg-taupe">
+            Book an Appointment
           </a>
           <a href="#services" className="btn-outline !border-cream !text-cream hover:!bg-cream hover:!text-espresso">
             Explore Treatments

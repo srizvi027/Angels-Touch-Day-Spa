@@ -12,6 +12,7 @@ const services = [
   "Ultimate Rituals",
   "Hair Treatments",
 ];
+const appointmentTypes = ["Mobile appointment", "In-studio appointment"];
 
 type ContactFormModalProps = {
   label: string;
@@ -124,6 +125,13 @@ export default function ContactFormModal({ label, className }: ContactFormModalP
                     </select>
                   </label>
                   <label className="font-body text-xs text-text">
+                    Appointment type
+                    <select name="appointmentType" required defaultValue="" className="mt-1 w-full rounded-lg border border-text/15 bg-secondary/40 px-3 py-2 text-sm outline-none transition-colors focus:border-accent">
+                      <option value="" disabled>Select mobile or in-studio</option>
+                      {appointmentTypes.map((type) => <option key={type}>{type}</option>)}
+                    </select>
+                  </label>
+                  <label className="font-body text-xs text-text">
                     Preferred date <span className="text-text/45">(optional)</span>
                     <input name="date" type="date" className="mt-1 w-full rounded-lg border border-text/15 bg-secondary/40 px-3 py-2 text-sm outline-none transition-colors focus:border-accent" />
                   </label>
@@ -133,6 +141,9 @@ export default function ContactFormModal({ label, className }: ContactFormModalP
                   </label>
                 </div>
 
+                <p className="mt-2 font-body text-xs leading-relaxed text-text/70">
+                  For mobile appointments, include your suburb in the message so we can confirm availability and any travel arrangements.
+                </p>
                 <label className="mt-2 block font-body text-xs text-text">
                   Message <span className="text-text/45">(optional)</span>
                   <textarea name="message" rows={2} className="mt-1 w-full resize-none rounded-lg border border-text/15 bg-secondary/40 px-3 py-2 text-sm outline-none transition-colors focus:border-accent" />

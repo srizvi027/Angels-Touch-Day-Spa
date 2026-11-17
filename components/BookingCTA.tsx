@@ -2,6 +2,7 @@
 
 import { Reveal } from "./Reveal";
 import ContactFormModal from "./ContactFormModal";
+import { bookingUrl } from "@/lib/site";
 
 export default function BookingCTA() {
   return (
@@ -19,17 +20,18 @@ export default function BookingCTA() {
           Your Time To Relax Starts Here.
         </h2>
         <p className="font-body text-cream/75 mb-10 max-w-lg mx-auto">
-          Choose your treatment and take the first step towards complete relaxation
-          and renewal.
+          Choose a mobile appointment or an in-studio treatment on our booking page.
+          For mobile services, please confirm your location and any travel arrangements
+          before your appointment.
         </p>
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
-            href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts"
+            href={bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary !bg-cream !text-espresso hover:!bg-taupe"
           >
-            Book Now
+            Book an Appointment
           </a>
           <ContactFormModal
             label="Contact Us"

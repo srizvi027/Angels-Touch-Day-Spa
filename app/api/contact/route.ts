@@ -12,6 +12,7 @@ type ContactRequest = {
   phone?: string;
   email?: string;
   service?: string;
+  appointmentType?: string;
   date?: string;
   time?: string;
   message?: string;
@@ -54,6 +55,7 @@ export async function POST(request: Request) {
     formData.append("phone", body.phone || "");
     formData.append("email", body.email || "");
     formData.append("service", body.service || "");
+    formData.append("appointmentType", body.appointmentType || "");
     formData.append("date", body.date || "");
     formData.append("time", body.time || "");
     formData.append("message", body.message || "");

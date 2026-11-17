@@ -1,13 +1,14 @@
 import Image from "next/image";
-import { Instagram, Facebook } from "lucide-react";
+import { Instagram } from "lucide-react";
+import { bookingUrl } from "@/lib/site";
 
 const links = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Pamper Parties", href: "#pamper-parties" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Pamper Parties", href: "/#pamper-parties" },
+  { label: "Testimonials", href: "/#testimonials" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Footer() {
@@ -39,6 +40,8 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+              <li><a href="/privacy-policy" className="font-body text-sm text-cream/80 hover:text-cream">Privacy Policy</a></li>
+              <li><a href="/terms-and-conditions" className="font-body text-sm text-cream/80 hover:text-cream">Terms &amp; Conditions</a></li>
             </ul>
           </div>
 
@@ -59,24 +62,16 @@ export default function Footer() {
             </h4>
             <div className="mb-5 flex gap-3">
               <a
-                href="https://www.instagram.com/angels_touchdayspa"
+                href="https://www.instagram.com/angels__touchdayspa/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-cream/30 hover:bg-cream hover:text-espresso transition-colors"
               >
                 <Instagram size={16} />
               </a>
-              <a
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-cream/30 hover:bg-cream hover:text-espresso transition-colors"
-              >
-                <Facebook size={16} />
-              </a>
             </div>
-            <a href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts" target="_blank" rel="noopener noreferrer" className="btn-primary !bg-cream !text-espresso hover:!bg-taupe !px-5 !py-3 text-xs">
-              Book Online
+            <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="btn-primary !bg-cream !text-espresso hover:!bg-taupe !px-5 !py-3 text-xs">
+              Book an Appointment
             </a>
           </div>
         </div>

@@ -2,6 +2,7 @@
 
 import { Reveal } from "./Reveal";
 import ContactFormModal from "./ContactFormModal";
+import { bookingUrl } from "@/lib/site";
 
 export default function FinalCTA() {
   return (
@@ -27,8 +28,8 @@ export default function FinalCTA() {
         </h2>
         <p className="font-body text-cream/85 mb-10">Relax. Restore. Reconnect.</p>
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts" target="_blank" rel="noopener noreferrer" className="btn-primary !bg-cream !text-espresso hover:!bg-taupe">
-            Book Your Appointment
+          <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="btn-primary !bg-cream !text-espresso hover:!bg-taupe">
+            Book an Appointment
           </a>
           <ContactFormModal
             label="Get In Touch"

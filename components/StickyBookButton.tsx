@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Phone } from "lucide-react";
+import { bookingUrl } from "@/lib/site";
 
 export default function StickyBookButton() {
   const [show, setShow] = useState(false);
@@ -24,12 +25,12 @@ export default function StickyBookButton() {
         <Phone size={18} />
       </a>
       <a
-        href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts"
+        href={bookingUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="flex-1 rounded-full bg-primary py-3 text-center font-body text-xs tracking-widest2 uppercase text-text"
       >
-        Book Now
+        Book an Appointment
       </a>
     </div>
   );

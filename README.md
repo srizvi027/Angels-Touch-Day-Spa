@@ -19,7 +19,7 @@ Open http://localhost:3000.
 - Services, Featured Treatment, Wellness Benefits, Pamper Parties (Hens & Kids),
   Celebrate Beautifully, Gallery, Testimonials carousel, Why Choose Us,
   Booking CTA, Contact, Hours, Map, Instagram showcase, Final CTA, Footer
-- Mobile sticky "Book Now" bar
+- Mobile sticky "Book an Appointment" bar
 - SEO: metadata, Open Graph, sitemap.xml, robots.txt, LocalBusiness + Service
   JSON-LD schema
 - Brand palette (#8A6B51, #937761, #BFA490, #B19D8D, #F8EDE2) wired into
@@ -28,9 +28,8 @@ Open http://localhost:3000.
 
 ## Before you launch
 
-1. **Booking link** — `components/BookingCTA.tsx` currently points to
-   `https://www.fresha.com`. Replace with your actual Fresha booking URL
-   (search for `fresha.com` in the file).
+1. **Booking link** — the booking destination is configured in `lib/site.ts`.
+   Confirm it remains the correct Fresha destination before publishing.
 2. **Facebook link** — `components/Footer.tsx` has a placeholder Facebook URL;
    swap in your real page.
 3. **More photography** — only your logo and three video clips were supplied.
@@ -38,8 +37,8 @@ Open http://localhost:3000.
    where real photos would go — drop new images into `public/images/` and
    swap them into `components/Gallery.tsx` and `components/InstagramShowcase.tsx`
    for the full editorial-grid effect described in the brief.
-4. **Domain** — update `siteUrl` in `app/layout.tsx` and the URLs in
-   `app/sitemap.ts` / `app/robots.ts` once your domain is live.
+4. **Domain** — the official website URL is configured in `lib/site.ts` and is
+   used by metadata, the sitemap, and `robots.txt`.
 5. **Enquiry form** — add the Web3Forms and Google reCAPTCHA v3 variables to
    `.env.local` and your deployment provider, then restart the dev server:
    `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_access_key`,

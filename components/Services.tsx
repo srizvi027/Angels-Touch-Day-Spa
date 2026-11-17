@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { bookingUrl } from "@/lib/site";
 
 const services = [
   {
@@ -69,7 +70,7 @@ export default function Services() {
                   </h3>
                   <p className="body-text mb-6 max-w-md">{s.text}</p>
                   <a
-                    href="https://www.fresha.com/a/angels-touch-day-spa-dapto-dapto-avondale-xs1t7vts"
+                    href={bookingUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 font-body text-xs tracking-widest2 uppercase text-espresso border-b border-espresso/40 pb-1 transition-all group-hover:gap-4 group-hover:border-espresso"
