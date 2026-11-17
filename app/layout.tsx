@@ -60,6 +60,9 @@ export const metadata: Metadata = {
       "Mobile massage and beauty services in Avondale and the Illawarra, plus in-studio treatments.",
     images: [`${siteUrl}/images/logo.png`],
   },
+  verification: {
+    google: "IM8DnKPAysTAMCwOpK0PznNaXf-LGlgHqdnmD_sz89g",
+  },
   icons: {
     icon: "/images/logo.png",
   },
