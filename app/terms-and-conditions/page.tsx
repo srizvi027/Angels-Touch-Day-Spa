@@ -59,14 +59,21 @@ export default function TermsAndConditionsPage() {
             <section>
               <h2 className="heading-md mb-3">Cancellation and rescheduling</h2>
               <p>
-                Please contact us as early as possible if you need to cancel or
-                change your appointment. The notice period, any applicable fee, and
-                the method for requesting a change must be confirmed before a
-                booking is made.
+                <span className="font-semibold text-espresso">24–48 Hours Notice:</span>{' '}
+                Please give at least 48 hours&apos; notice for cancellations or
+                rescheduling whenever possible, with an absolute minimum of 24 hours.
               </p>
-              <p className="mt-3 font-semibold text-espresso">
-                [OWNER TO CONFIRM: cancellation and rescheduling notice period,
-                applicable charges, and how clients should request a change.]
+              <p className="mt-3">
+                <span className="font-semibold text-espresso">Late Cancellation Policy:</span>{' '}
+                Cancellations made within 24 to 48 hours of the appointment will
+                incur a 50% fee. Cancellations made under 24 hours before the
+                appointment, or missed appointments, will incur a 100% fee.
+              </p>
+              <p className="mt-3">
+                To cancel or reschedule, please use the Fresha booking page or
+                contact us as soon as possible. This policy helps us offer open
+                appointments to clients on our waitlist and continue providing
+                unhurried, high-level care.
               </p>
             </section>
 
@@ -75,12 +82,9 @@ export default function TermsAndConditionsPage() {
               <p>
                 If you expect to arrive late or cannot attend, please contact us
                 promptly. A late arrival may reduce the time available for your
-                treatment so that later appointments are not delayed. Any charge for
-                a missed or late appointment must be disclosed to you before booking.
-              </p>
-              <p className="mt-3 font-semibold text-espresso">
-                [OWNER TO CONFIRM: grace period, treatment-time adjustment, and any
-                missed-appointment charge.]
+                treatment so that later appointments are not delayed. A missed
+                appointment is subject to the 100% fee described in our late
+                cancellation policy.
               </p>
             </section>
 

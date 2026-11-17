@@ -24,6 +24,11 @@ export default function BookingCTA() {
           For mobile services, please confirm your location and any travel arrangements
           before your appointment.
         </p>
+        <p className="font-body text-cream/75 mb-10 max-w-lg mx-auto text-sm">
+          Please provide at least 48 hours&apos; notice whenever possible, with a minimum
+          of 24 hours. Cancellations within 24–48 hours incur a 50% fee; cancellations
+          under 24 hours or missed appointments incur a 100% fee.
+        </p>
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
             href={bookingUrl}
